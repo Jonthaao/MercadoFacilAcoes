@@ -1,8 +1,0 @@
-.background{
-    background-color: hsl(214, 8%, 17%);
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}

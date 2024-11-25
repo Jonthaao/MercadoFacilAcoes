@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import { LoginData } from "../../Interfaces/LoginData";
 import { LoginAPI } from "../../Servicos/MercadoFacilAPI";
@@ -24,13 +23,14 @@ const Login = () => {
             const response = await LoginAPI(loginData);
             if (response.data && response.status === 200) {
                 alert('Login realizado com sucesso');
-                sessionStorage.setItem('token', response.data.token);               
+                sessionStorage.setItem('token', response.data.token);
                 const testeRecuperaDado = sessionStorage.getItem('token');
                 alert('Dado Recuperado do session storage: ' + testeRecuperaDado);
+                window.location.href = '/Home/AreaLogada';
             } else {
                 alert('Falha no login');
             }
-        } catch (e: Error | any) {
+        } catch (e) {
             console.error('Falha no login: ' + e.message);
         }
     }
@@ -46,7 +46,6 @@ const Login = () => {
             <div className="LoginForm">
                 <form className="login-form-inline">
                     <input
-                        id = "text_mail"
                         type="text"
                         name="email"
                         placeholder="E-mail"

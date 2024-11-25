@@ -3,13 +3,13 @@ import { LoginData } from '../Interfaces/LoginData';
 import { Usuario } from '../Interfaces/Usuario';
 
 const apiClient = axios.create({
-    baseURL: 'http://localhost:5165/api',
+    baseURL: 'https://37b4pnp5-5165.brs.devtunnels.ms/api',
     headers:{
         'Content-Type': 'application/json'
     }
 })
 
-export const LoginAPI = (loginData: LoginData) => {  
+export const LoginAPI =(loginData: LoginData)=>{
     return apiClient.post('/Login/login', loginData)
 }
 
@@ -25,7 +25,7 @@ export const DeletarUsuario = (id: string) =>{
     return apiClient.delete(`/UserController/DeleteUser/${id}`)
 }
 
-export const ListarUsuarios = () =>{    
+export const ListarUsuarios = () =>{
     return apiClient.get('/UserController/GetAll')
 }
 
@@ -45,10 +45,12 @@ export const FetchShareBySymbol = async (symbol: string) =>{
     }
 }
 
-
-export const FetchShareListPaged = async (page: number, resultsByPage: number) =>{
+export const FetchShareListPaged = async (page: number, resultsByPage: number) => {
     try {
-        const response = await apiClient.get(`/Share/${page}, ${resultsByPage}`,
+        // A URL final será: https://x1vxxxvv-5165.brs.devtunnels.ms/Share/${page},${resultsByPage}
+        const url = `https://37b4pnp5-5165.brs.devtunnels.ms/Share/${page}, ${resultsByPage}`;
+        console.log(url);
+        const response = await apiClient.get(url, 
             {
                 headers: {
                     'Authorization': `Bearer ${sessionStorage.getItem('token')}`

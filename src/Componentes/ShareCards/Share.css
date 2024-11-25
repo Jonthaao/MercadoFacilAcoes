@@ -1,43 +1,41 @@
-.card-extra-styles {
-    width: 240px;
-    height: 120px;
-    background-color: hwb(40 20% 77%);
-    border-radius: 15px;
-    border-width: 3px;
-    box-shadow: #72a24d 3px 3px 3px 5px;
-    border-style: ridge;   
-    padding: 5px; 
-    margin: 10px;
-}
-.card-title {
-    text-align: center;
-    font-size: 12px;
-    font-weight: bold;
-    margin-bottom: 3px;
-
-}
-.share-card__image {
-    padding: 2px;
-   
-    border-radius: 10px;
-    align-content: center;
-    width: 40px;
-    height: 40px;
-    display: block;
-    margin: 0 auto;
+.container-share {
+    background-color: #0e1a28;
+    width: 300px;
+    padding: 40px;
+    border: 3px solid gray;
     border-radius: 20px;
+}
 
+.share-card__image {
+    width: 150px;
+    height: 150px;
+    margin-top: 50px; 
+    border-radius: 10px;
+    border: 2px solid rgb(255, 255, 255);
 }
-.card-body {
-    margin: 2px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
- 
-}
-.card-text{
-    font-size: 10px;
+
+.share-name {
+    white-space: nowrap; /* Impede quebras de linha */
+    overflow: hidden; /* Esconde texto que ultrapassa o limite */
+    text-overflow: ellipsis; /* Adiciona '...' se o texto for maior que o espaço disponível */
+    font-size: 1.2rem; /* Ajuste do tamanho do texto */
+    font-weight: bold; /* Destaque para o nome */
+    color: white;
+    margin-bottom: 10px;
+    }
+
+.titulos-share {
+    color: white;
     text-align: center;
+}
+
+.submenu-share {
+    margin-top: 30px;
+}
+.campos-share{
+    font-size: 30px;
     font-weight: bold;
-    margin-top: 3px;
+}
+.campos2-share{
+    font-size: 30px;
 }

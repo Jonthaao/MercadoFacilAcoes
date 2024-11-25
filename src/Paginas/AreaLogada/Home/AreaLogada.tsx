@@ -1,10 +1,11 @@
-import NavBar from '../../Componentes/NavBar/NavBar';
-import './Home.css';
+
+import MarketPage from '../../../Componentes/PagedList/PagedList';
+import './AreaLogada.css';
 const Home = () => {
     return(
         <>
             <div>
-                <NavBar/>
+                <MarketPage/>
             </div>
         </>        
     );
