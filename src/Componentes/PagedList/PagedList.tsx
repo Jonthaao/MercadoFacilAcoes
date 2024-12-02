@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Share from "../ShareCards/Share";
 import { FetchShareListPaged } from "../../Servicos/MercadoFacilAPI";
+import { useNavigate } from 'react-router-dom'; // Verifique se está importado corretamente
 import './PagedList.css'
 
 const PagedList: React.FC = () => {
@@ -29,6 +30,13 @@ const PagedList: React.FC = () => {
 
         fetchShares();
     }, [page, resultsPerPage]);
+
+    const navigate = useNavigate();
+    
+    const handleShareClick = (symbol: string) => {
+        // Navega para a página de detalhes da ação, usando o símbolo como parâmetro
+        navigate(`/acao/${symbol}`);
+    };
 
     const handlePageClick = (pageNumber: number) => {
         setPage(pageNumber);
@@ -59,12 +67,18 @@ const PagedList: React.FC = () => {
                         <div className="row">
                             {shares.slice(0, 6).map((share) => (
                                 <div className="col-4 col-sm-6 col-md-4 card-spacing" key={share.id}>
-                                    <Share
-                                        logoUrl={share.logourl}
-                                        shortName={share.shortName}
-                                        symbol={share.symbol}
-                                        regularMarketPrice={share.regularMarketPrice}
-                                    />
+                                    <button
+                                        className="card-button"
+                                        onClick={() => handleShareClick(share.symbol)} // Ação ao clicar
+                                        style={{ width: '100%', height: '100%', border: 'none', background: 'none' }} // Remover bordas do botão
+                                    >
+                                        <Share
+                                            logoUrl={share.logourl}
+                                            shortName={share.shortName}
+                                            symbol={share.symbol}
+                                            regularMarketPrice={share.regularMarketPrice}
+                                        />
+                                    </button>
                                 </div>
                             ))}
                         </div>

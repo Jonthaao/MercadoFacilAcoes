@@ -3,30 +3,30 @@ import { LoginData } from '../Interfaces/LoginData';
 import { Usuario } from '../Interfaces/Usuario';
 
 const apiClient = axios.create({
-    baseURL: 'https://37b4pnp5-5165.brs.devtunnels.ms/api',
+    baseURL: 'https://jjkbpm4r-5165.brs.devtunnels.ms/', 
     headers:{
         'Content-Type': 'application/json'
     }
 })
 
 export const LoginAPI =(loginData: LoginData)=>{
-    return apiClient.post('/Login/login', loginData)
+    return apiClient.post('api/Login/login', loginData)
 }
 
 export const CriarUsuario = (dadosUsuario: Usuario) =>{
-    return apiClient.post('/User', dadosUsuario)
+    return apiClient.post('api/User', dadosUsuario)
 }
 
 export const AtualizarUsuario = (dadosUsuario: Usuario) =>{
-    return apiClient.put('/User/UpdateUser', dadosUsuario)
+    return apiClient.put('api/User/UpdateUser', dadosUsuario)
 }
 
 export const DeletarUsuario = (id: string) =>{
-    return apiClient.delete(`/UserController/DeleteUser/${id}`)
+    return apiClient.delete(`api/UserController/DeleteUser/${id}`)
 }
 
 export const ListarUsuarios = () =>{
-    return apiClient.get('/UserController/GetAll')
+    return apiClient.get('api/UserController/GetAll')
 }
 
 export const FetchShareBySymbol = async (symbol: string) =>{
@@ -48,7 +48,7 @@ export const FetchShareBySymbol = async (symbol: string) =>{
 export const FetchShareListPaged = async (page: number, resultsByPage: number) => {
     try {
         // A URL final será: https://x1vxxxvv-5165.brs.devtunnels.ms/Share/${page},${resultsByPage}
-        const url = `https://37b4pnp5-5165.brs.devtunnels.ms/Share/${page}, ${resultsByPage}`;
+        const url = `https://jjkbpm4r-5165.brs.devtunnels.ms/Share/${page}, ${resultsByPage}`;
         console.log(url);
         const response = await apiClient.get(url, 
             {

@@ -4,6 +4,7 @@ import './App.css'
 import CadastroUsuario from "./Paginas/CadastroUsuario/CadastroUsuario";
 import AreaLogada from './Paginas/AreaLogada/Home/AreaLogada'
 import PagedList from "./Componentes/PagedList/PagedList";
+import CardInfo from "./Paginas/AreaLogada/CardInfo/CardInfo";
 
 const App = () => {
   return(
@@ -13,6 +14,7 @@ const App = () => {
         <Route path="/CadastroUsuarios" element={<CadastroUsuario/>}/>
         <Route path="/Home/AreaLogada" element={<AreaLogada/>}/>
         <Route path="/AcoesGerais" element={<PagedList/>}/>
+        <Route path="/acao/:symbol" element={<CardInfo />} />
       </Routes>
     </Router>
   );
